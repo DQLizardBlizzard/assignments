@@ -25,11 +25,6 @@ fetch(
       }
     });
 
-    //Test to see if sort function worked
-    // trackSort.forEach(element => {
-    //     console.log(element.track.name, element.track.popularity);
-    // });
-
     const topSongs = trackSort.slice(trackSort.length - 3);
 
     //Test to see if slice function worked
