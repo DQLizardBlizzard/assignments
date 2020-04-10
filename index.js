@@ -87,5 +87,3 @@ function createAlbumContainer(album) {
 
   document.querySelector("#albums").appendChild(albumContainer)
 }
-
-const $ = document.querySelector
