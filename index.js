@@ -3,7 +3,7 @@ const requestOptions = {
     //Will have to get your own key
     //Refreshes every hour
     Authorization:
-      "Bearer BQCMzf5_QXU1osfGSpCB9f7oBFrHDqL9bVPpTutY4BBZgpwXgLcrurc3h7AkZzEFLhpfr_U3KgT7c7hcTcLJSzqEj7Rvcs8uyXmTUCzVE2ik8h0Pa4Is69vg649S89qQXAjt2v6gFznTM32KSlZvDaeLKbObfp682c4N_4pWb_8LYF3Aso1w7hC7Bp7SJthwVQzvVnsXQFs7IX1JC5WYFQ4peNARbg7zpRMd0r4ajewkfGh2-QL1e3N--E8AYdjz7ijLD3kAZcyGT8Dvsyo64PSPt1w"
+      "Bearer BQDdGqeWnpEn-NEreF04wV_NKCx4fPBy3d0_3PfvHvlwK3egXX3n_-Cl2nzjjGa98nxxlsP0FPaRHZ1xbih7NiMUO1UV9_paD_VRmR2uG0bvF5emAMJQB9F32kRnf5OUDjXVs20S30UXQ9EIfsbh76Fa1ix8d6vOG7CS6W_MmMrA1efvtR5zpm1--Mg2Kz8Vv9n5Gw_BJqDkjzdLLyPTKyR4TsTw4eR1szJe9w2HJpaDveYzXcH2QWf339vRV5LkOOodteMwqvdV"
   }
 };
 
@@ -32,12 +32,6 @@ fetch(
       console.log(element.track.name, element.track.popularity);
     });
 
-    topSongs.forEach(song => {
-        let albumPic = new Image();
-        albumPic.src = song.track.album.images[1].url;
-        document.body.appendChild(albumPic);
-    });
-
     return Promise.all(topSongs.map(song => {
         return fetch(song.track.album.href, requestOptions)
     }))
@@ -50,4 +44,48 @@ fetch(
   })
   .then(albums => {
       console.log(albums)
+      albums.forEach(album => {
+        createAlbumContainer(album)
+      })
+
   })
+
+function createAlbumContainer(album) {
+
+  // <div class="album">
+  //   <img src="albumimgurl.com" alt="">
+  //   <h2>Name of the artist</h2>
+  //   <h2>Name of the album</h2>
+  //   <ol class="tracklist">
+  //       <li class="track"></li>
+  //       <li class="track"></li>
+  //       <li class="track"></li>
+  //       <li class="track"></li>
+  //   </ol>
+  // </div>
+
+  console.log(album.href)
+  let albumContainer = document.createElement('div')
+  
+  let albumImg = new Image()
+  albumImg.src = album.images[0].url
+
+  let artistNameHeader = document.createElement('h2')
+  let albumNameHeader = document.createElement('h2')
+  let tracklist = document.createElement('ol')
+  
+  album.tracks.items.forEach(track => {
+    let trackLi = document.createElement('li') 
+    trackLi.innerHTML = track.name
+    tracklist.appendChild(trackLi)
+  })
+
+  albumContainer.appendChild(albumImg)
+  albumContainer.appendChild(artistNameHeader)
+  albumContainer.appendChild(albumNameHeader)
+  albumContainer.appendChild(tracklist)
+
+  document.querySelector("#albums").appendChild(albumContainer)
+}
+
+const $ = document.querySelector
