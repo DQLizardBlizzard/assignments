@@ -3,14 +3,14 @@ const requestOptions = {
     //Will have to get your own key
     //Refreshes every hour
     Authorization:
-      "Bearer BQDdGqeWnpEn-NEreF04wV_NKCx4fPBy3d0_3PfvHvlwK3egXX3n_-Cl2nzjjGa98nxxlsP0FPaRHZ1xbih7NiMUO1UV9_paD_VRmR2uG0bvF5emAMJQB9F32kRnf5OUDjXVs20S30UXQ9EIfsbh76Fa1ix8d6vOG7CS6W_MmMrA1efvtR5zpm1--Mg2Kz8Vv9n5Gw_BJqDkjzdLLyPTKyR4TsTw4eR1szJe9w2HJpaDveYzXcH2QWf339vRV5LkOOodteMwqvdV"
+      "Bearer BQDjsRai8RLzwsgkVTrvoUY8A80ZEmJSHuc-V8ghomZ136FZf2RsjQVCBw-FhLarHZTj5y2a44Pwt75Ljz6e76HV1vq6hF3_OnX8mo8Y9AbTtysp83H5MTwk4PnNoLRJUYIo7avmdnyBSt4ELPrrwRa4GfHYzZ6IHhYxFpU2jKrzYrP7nMkojizpTu9tqHALtECvB8kC-draWeglqWEIQmYBhUdSMN2oyzu4YDN0yyQP9Ye6I68UYj5qmk74mlwlgABLyrouHUk6N6Accu1dLQemAjs"
   }
 };
 
 //.../{playlist_id}/tracks fetches information on a playlist's tracks
 //instead of the entire playlist object
 fetch(
-  "https://api.spotify.com/v1/playlists/6UV10SjneRX3Jex3g4pEd9/tracks",
+  "https://api.spotify.com/v1/playlists/78WhX3qXdWjt9b8NmIKTuv/tracks",
   requestOptions
 )
   .then(response => {
@@ -66,12 +66,14 @@ function createAlbumContainer(album) {
 
   console.log(album.href)
   let albumContainer = document.createElement('div')
-  
+  albumContainer.className = "albumContainer"
   let albumImg = new Image()
   albumImg.src = album.images[0].url
 
-  let artistNameHeader = document.createElement('h2')
+  let artistNameHeader = document.createElement('h1')
+  artistNameHeader.innerHTML = album.artists[0].name
   let albumNameHeader = document.createElement('h2')
+  albumNameHeader.innerHTML = album.name
   let tracklist = document.createElement('ol')
   
   album.tracks.items.forEach(track => {
