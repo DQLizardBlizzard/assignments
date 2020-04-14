@@ -1,3 +1,11 @@
 div {
     display: inline-flex;
 }
+
+#header {
+    background-color: black;
+}
+
+#title {
+    color: cornsilk;
+}
