@@ -3,14 +3,14 @@ const requestOptions = {
     //Will have to get your own key
     //Refreshes every hour
     Authorization:
-      "Bearer BQDjsRai8RLzwsgkVTrvoUY8A80ZEmJSHuc-V8ghomZ136FZf2RsjQVCBw-FhLarHZTj5y2a44Pwt75Ljz6e76HV1vq6hF3_OnX8mo8Y9AbTtysp83H5MTwk4PnNoLRJUYIo7avmdnyBSt4ELPrrwRa4GfHYzZ6IHhYxFpU2jKrzYrP7nMkojizpTu9tqHALtECvB8kC-draWeglqWEIQmYBhUdSMN2oyzu4YDN0yyQP9Ye6I68UYj5qmk74mlwlgABLyrouHUk6N6Accu1dLQemAjs"
+      "Bearer BQBB_bmz3G7haycTXp_S0A6I-Z6jU1iik-YyayvnI8tvDeS5b8m50v4M2zkD2cWb5qVCh3pAG3L32qVMVnozywPTw-eJ3dil87-iN_4mIz_-cg-roQ4ak-oLfjKx35UcJTU6lzN4YKL_HLxQ9XMnq2DbQlu57mXY-vjRMeTLZIJODVvRv9OapYsLwuQgY252kntowDS3gCH6n9pgjvVaczlgMqhhVkvUdwhcXbVmJLelvA4lZ_6D7Iej-KVZSOnWRJ65xPYJQVTwSvIDdp8WMrF0a2I"
   }
 };
 
 //.../{playlist_id}/tracks fetches information on a playlist's tracks
 //instead of the entire playlist object
 fetch(
-  "https://api.spotify.com/v1/playlists/78WhX3qXdWjt9b8NmIKTuv/tracks",
+  "https://api.spotify.com/v1/playlists/37i9dQZF1Ejr0c5IxYID6d/tracks",
   requestOptions
 )
   .then(response => {
