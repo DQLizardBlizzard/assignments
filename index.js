@@ -10,7 +10,7 @@ const requestOptions = {
 //.../{playlist_id}/tracks fetches information on a playlist's tracks
 //instead of the entire playlist object
 fetch(
-  "https://api.spotify.com/v1/playlists/37i9dQZF1Ejr0c5IxYID6d/tracks",
+  "https://api.spotify.com/v1/playlists/37i9dQZF1EtqQ6KTQvvHJo/tracks",
   requestOptions
 )
   .then(response => {
